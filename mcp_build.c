@@ -2424,10 +2424,10 @@ void build_cmd(char **words, MCPacketQueue *sq, MCPacketQueue *cq) {
 
 // dispatch for the building-relevant packets we get from mcp_game
 int build_packet(MCPacket *pkt, MCPacketQueue *sq, MCPacketQueue *cq) {
-    if (pkt->pid == SP_UpdateHealth && gs.own.health < 20) {
+    if (pkt->pid == SP_UpdateHealth && gs.own.health < 0) {
         if (build.active) {
             build.active = 0;
-            chat_message("INJURY!!! Buildtask paused!", cq, "green", 2);
+            chat_message("INJURY!!! Yo Rutsy eat something! ->Buildtask paused!", cq, "green", 2);
         }
     }
 
